@@ -25,9 +25,44 @@
 
 const Calculadora = require('./modulos/calculadora');
 
+const Callback = require('./modulos/operacoes');
+
+function somar(valores) {
+    var resultadoDaSomaDeValores = valores.reduce( (valorAcumula, valorAtual) => valorAcumula + valorAtual );
+    return resultadoDaSomaDeValores;
+}
+
+function multiplicar(valores) {
+    var resultadoDaMultiplicacaoDeValores = valores.reduce( (valorAcumula, valorAtual) => valorAcumula * valorAtual );
+    return resultadoDaMultiplicacaoDeValores;
+}
+
+function subtrair(valores) {
+    var resultadoDaSubtracaoDeValores = valores.reduce( (valorAcumula, valorAtual) => valorAcumula - valorAtual );
+    return resultadoDaSubtracaoDeValores;
+}
+
+function dividir(valores) {
+    var resultadoDaDivisaoDeValores = valores.reduce( (valorAcumula, valorAtual) => valorAcumula / valorAtual );
+    return resultadoDaDivisaoDeValores;
+}
+
+const soma = Callback.calcular([14, 6],somar);
+console.log('Soma:',soma);
+
+const multiplicacao = Callback.calcular([5, 4], multiplicar);
+console.log('Multiplicação:',multiplicacao);
+
+const subtracao = Callback.calcular([30, 17], subtrair);
+console.log('Subtração:',subtracao);
+
+const divisao = Callback.calcular([21,7],dividir)
+console.log('Divisão:',divisao);
+
 const app = new Calculadora();
 
-console.log('Resultado:');
+
+/* console.log('Resultado:');
 console.log('Zerando a calculadora:');
 console.log('Operações:');
-console.log('Operações = resultado:');
+console.log('Operações = resultado:'); */
